@@ -1,0 +1,168 @@
+\chapter{Простая постановка задачи}\label{ch:ch1}
+
+\section{Цилиндры с радиальным изменением температуры}\label{sec:ch1/sec1}
+
+Рассмотрим сплошной цилиндр с осью симметрии \(oz\) радиуса \(b\) с изменением радиальной температуры, такой что \(\theta(r)=T(r)-T_0\), где \(T_0\) --- начальная температура. Предположим также плоскюу деформацию \(\epsilon_{zz}=\epsilon_{rz}=\epsilon_{\phi z}=0\). Тогда напряженно-деформированное состояние запишется в виде:
+\begin{equation}
+	\label{eq:equation1}
+\begin{split}
+	\epsilon_{rr} &= \frac{1}{E} \big [\sigma_{rr} - \nu \big(\sigma_{\phi\phi} + \sigma_{zz}\big) \big] + \alpha \theta \\
+	\epsilon_{\phi\phi} &= \frac{1}{E} \big [\sigma_{\phi\phi} - \nu \big(\sigma_{rr} + \sigma_{zz}\big) \big] + \alpha \theta \\
+	\sigma_{zz} &= \nu \big(\sigma_{rr} + \sigma_{\phi\phi}\big) - E\alpha\theta \\
+\end{split}
+\end{equation}	
+
+Выразим напряжения через деформации, получим
+\begin{equation}
+	\label{eq:equation2}
+	\begin{split}
+		\sigma_{rr} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\epsilon_{rr} + \nu\epsilon_{\phi\phi} - \big(1+\nu\big )\alpha\theta\big] \\
+		\sigma_{\phi\phi} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\epsilon_{\phi\phi} + \nu\epsilon_{rr} - \big(1+\nu\big )\alpha\theta\big] 
+	\end{split}
+\end{equation}
+
+Уравнение равновесия для осесимметричной задачи выглядит следующим образом:
+\begin{equation}
+	\label{eq:equation3}
+		\frac {d\sigma_{rr} }{dr} + \frac {\sigma_{rr}-\sigma_{\phi\phi}}{r}=0
+\end{equation}
+при этом деформации через радиальные перемещения \(u\) выглядят так:
+\begin{equation}
+	\label{eq:equation4}
+	\epsilon_{rr} = \frac{du}{dr} \qquad \epsilon_{\phi\phi} = \frac{u}{r}
+\end{equation}
+
+Уравнения~\cref{eq:equation4} подставим в \cref{eq:equation2}, что дает следующее:
+\begin{equation}
+	\label{eq:equation5}
+	\begin{split}
+		\sigma_{rr} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\frac{du}{dr} + \nu\frac{u}{r} - \big(1+\nu\big )\alpha\theta\big] \\
+		\sigma_{\phi\phi} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\frac{u}{r} + \nu\frac{du}{dr} - \big(1+\nu\big )\alpha\theta\big] 
+	\end{split}
+\end{equation}
+
+Подставляя полученные уравнения \cref{eq:equation5} в уравнение равновесия \cref{eq:equation3} и немного упрощая, получим уравнение равновесия в радиальных перемещениях \(u\):
+\begin{equation}
+	\label{eq:equation6}
+	\frac {d}{dr} \big[\frac{1}{r} \frac{d \big(ur \big)}{dr} \big] = \frac{1+\nu}{1-\nu}\alpha\frac{d\theta}{dr}
+\end{equation}
+
+Интегрирование \cref{eq:equation6} дает следующее уравнение:
+\begin{equation}
+	\label{eq:equation7}
+	u = \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \int_0^r \theta rdr +C_1r +\frac{C_2}{r}
+\end{equation}
+где \(C_1\) и \(C_2\) постоянные интегрирования. Поскольку перемещения должны быть конечными в центре (\(r=0\)), отсюда следует, что \(C_2\) должно быть равным нулю. Тогда компоненты перемещения в \cref{eq:equation4} принимаю вид:
+\begin{equation}
+	\label{eq:equation8}
+	\begin{split}
+		\epsilon_{rr} &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1 + \frac{1+\nu}{1-\nu} \alpha\theta\\
+		\epsilon_{\phi\phi} &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1
+	\end{split}
+\end{equation}
+
+и напряжения из уравнения \cref{eq:equation2} превращяются:
+
+\begin{equation}
+	\label{eq:equation9}
+	\begin{split}
+		\sigma_{rr} &= -\frac{E}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1 \frac{E}{\big(1+\nu\big)\big(1-2\nu\big)}\\
+		\sigma_{\phi\phi} &= -\frac{E}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr -\frac{E \alpha \theta}{1-\nu} +C_1\frac{E}{\big(1+\nu\big)\big(1-2\nu\big)}
+	\end{split}
+\end{equation}
+
+Определим константуу \(C_1\) использую граничные условия
+\begin{equation}
+	\label{eq:equation10}
+	\sigma_{rr} = 0 \quad \text{на границе} \quad r=b
+\end{equation}
+что приводит к следующему
+\begin{equation}
+	\label{eq:equation11}
+	C_1 = \frac{\alpha \big(1+\nu\big) \big(1-2\nu\big)}{\big(1-\nu\big) b^2} \int_0^b \theta rdr
+\end{equation}
+
+После подстановки \cref{eq:equation7} в \cref{eq:equation9}, получили:
+\begin{equation}
+	\label{eq:equation12}
+	\begin{split}
+		u &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \big[ \int_0^r \theta rdr +\big(1-2\nu\big ) \frac{r^2}{b^2}\int_0^b \theta r dr\big]\\
+		\sigma_{rr} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2}\int_0^b \theta rdr -\frac{1}{r^2}\int_0^r \theta r dr\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2}\int_0^b \theta rdr +\frac{1}{r^2}\int_0^r \theta r dr - \theta \big]
+	\end{split}
+\end{equation}
+
+Напряжения в осевом направлении, \(\sigma_{zz}\), получим из \cref{eq:equation1}
+
+\begin{equation}
+	\label{eq:equation13}
+	\sigma_{zz} = \frac{E \alpha}{1-\nu}\big[ \frac{2\nu}{b^2}\int_0^b \theta rdr  - \theta \big]
+\end{equation}	
+	
+Для тонкостенного цилиндра с радиусами \(a\) и \(b\), определяющие уравнения для перемещений записываются в этих границах --- от \(a\) внутреннего радиуса, до \(r\). Из \cref{eq:equation7}
+
+\begin{equation}
+	\label{eq:equation14}
+	u = \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \int_a^r \theta rdr +C_1r +\frac{C_2}{r}
+\end{equation}
+
+Подставляя \(u\) из \cref{eq:equation4} \cref{eq:equation2}, радиальные напряжения \(\sigma_{rr}\) находятся следующим образом:
+
+\begin{equation}
+	\label{eq:equation15}
+	\sigma_{rr} = E \big [-\frac{\alpha}{\big(1-\nu \big) r^2} \int_a^r \theta rdr + \frac{C_1}{\big (1+\nu\big ) \big(1-2\nu \big)} - \frac{C_2}{\big(1+\nu\big) r^2} \big]
+\end{equation}
+
+
+Применим граничные условия
+\begin{equation}
+	\label{eq:equation16}
+	\begin{split}
+		\sigma_{rr} = 0 \quad \text{на границе} \quad r=a\\
+		\sigma_{rr} = 0 \quad \text{на границе} \quad r=b
+	\end{split}
+\end{equation}
+
+приводит к следующему
+
+\begin{equation*}
+	\begin{split}
+		C_1 &= \frac{\big(1+\nu \big)\big(1-2\nu \big)}{\big(1-\nu \big)}  \frac{\alpha}{\big(b^2-a^2 \big)} \int_a^b \theta rdr\\
+		C_2 &= \frac{\big(1+\nu \big)}{\big(1-\nu \big)}\frac{\alpha a^2}{\big(b^2-a^2 \big)}\int_a^b \theta rdr
+	\end{split}
+\end{equation*}
+
+Подставим \(C_1)\) и \(C_2\) в \cref{eq:equation14}, радиальные перемещения и напряжения получаются следующими:
+
+\begin{equation}
+	\label{eq:equation17}
+	\begin{split}
+		u &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \big[ \frac{\big( 1-2\nu \big) r^2 +a^2}{b^2-a^2} \int_a^b \theta rdr + \int_a^r \theta r dr\big]\\
+		\sigma_{rr} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2-a^2} \big(1-\frac{a^2}{r^2} \big)\int_a^b \theta rdr -\frac{1}{r^2}\int_a^r \theta r dr\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2-a^2}\big(1+\frac{a^2}{r^2} \big)\int_a^b \theta rdr +\frac{1}{r^2}\int_a^r \theta r dr - \theta \big]
+	\end{split}
+\end{equation}	
+	
+Осевые напряжения из \cref{eq:equation1}	получаются следующими:
+
+\begin{equation}
+	\label{eq:equation18}
+	\sigma_{zz} = \frac{E \alpha}{1-\nu}\big[ \frac{2\nu}{b^2-a^2}\int_a^b \theta rdr  - \theta \big]	
+\end{equation}
+
+и осевая сила \(F_z\) в этом случае, \(\epsilon_{zz}=0\)
+
+\begin{equation}
+	\label{eq:equation19}
+	F_z = \int_a^b 2 \pi r \sigma_{zz} dr
+\end{equation}
+
+
+Если положить внутреннюю температуру в цилиндре \(T_a\), а внешнюю \(T_b\), то распределение температуры можно записать в виде:
+
+\begin{equation}
+	\label{eq:equation20}
+	{\color{red}T=\frac{T_a - T_b}{\ln{\frac{b}{a}}} \big(\ln{\frac{b}{r}} \big) + T_b}
+\end{equation}
+
+{\color{red}TODO: объяснить откуда это пришло?}
