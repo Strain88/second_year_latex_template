@@ -1,6 +1,6 @@
 \chapter{Простая постановка задачи}\label{ch:ch1}
 
-\section{Цилиндры с радиальным изменением температуры}\label{sec:ch1/sec1}
+\section{Цилиндр с радиальным изменением температуры}\label{sec:ch1/sec1}
 
 Рассмотрим сплошной цилиндр с осью симметрии \(oz\) и радиусом \(b\) и с законом изменения радиальной температуры выраженной \(\theta(r)=T(r)-T_0\), где \(T_0\) --- начальная температура. Предположим также плоскюу деформацию \(\epsilon_{zz}=\epsilon_{rz}=\epsilon_{\phi z}=0\). Тогда напряженно-деформированное состояние запишется в виде:
 \begin{equation}
@@ -132,7 +132,7 @@
 	\end{split}
 \end{equation*}
 
-Подставим \(C_1)\) и \(C_2\) в \cref{eq:equation14}, радиальные перемещения и напряжения получаются следующими:
+Подставим \(C_1\) и \(C_2\) в \cref{eq:equation14}, радиальные перемещения и напряжения получаются следующими:
 
 \begin{equation}
 	\label{eq:equation17}
@@ -165,4 +165,88 @@
 	{\color{red}T=\frac{T_a - T_b}{\ln{\frac{b}{a}}} \big(\ln{\frac{b}{r}} \big) + T_b}
 \end{equation}
 
+\[T_a - T_b = T_d\]
 {\color{red}TODO: объяснить откуда это пришло?}
+
+Подставляя температурное распределение в напряжения для полого цилиндра с фиксированными гранями \cref{eq:equation17}, получаем:
+
+\begin{equation}
+	\label{eq:equation21}
+	\begin{split}
+		\sigma_{rr} &= \frac{E \alpha T_d}{2 \big (1 -\nu \big) \ln{\frac{b}{a}}}\big[ \ln{\frac{b}{r}} + \frac{a^2}{b^2-a^2} \big(1-\frac{b^2}{r^2} \big) \ln{\frac{b}{a}}\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha T_d}{2 \big (1-\nu \big ) \ln{\frac{b}{a}} }\big[1 - \ln{\frac{b}{r}} - \frac{a^2}{b^2-a^2}\big(1+\frac{b^2}{r^2} \big)\ln{\frac{b}{a}} \big] \\
+		\sigma_{zz} &= \frac{\nu E \alpha T_d}{2 \big (1-\nu \big) \ln{\frac{b}{a}}} \big [1-\frac{2 a^2}{b^2 - a^2}\ln{\frac{b}{a}}-\frac{2}{\nu} \ln{\frac{b}{r}} \big] - E \alpha \big(T_b - T_0 \big)
+	\end{split}
+\end{equation}
+
+Теперь рассмотрим случай обобщенного условия деформации в плоскости для полого толстого цилиндра. Из уравнения ({\color{red}Сослаться на 1.19}) следует, что осевая нагрузка равна нулю
+
+\begin{equation}
+	\label{eq:equation22}
+	F_z = \int_a^b 2 \pi r \sigma_{rr} dr = 0
+\end{equation}
+
+Если переписать осевую деформацию цилинда \(\epsilon_{zz}\) с нагревом в полярных координатах, то получим
+
+\begin{equation}
+	\label{eq:equation23}
+	\sigma_{zz} = r \big (\sigma_{rr}+\sigma_{\phi\phi} \big) + E \alpha (\bar{\theta} - \theta)
+\end{equation}
+
+где \(\theta = T - T_0\) и
+
+\begin{equation}
+	\label{eq:equation24}
+	\bar{\theta} = \frac{1}{A} \int_A dA = \frac{2 \pi}{\pi \big (b^2 - a^2 \big)} \int_a^b \theta rdr = \frac{2}{b^2-a^2} \int_a^b \theta rdr
+\end{equation}
+
+
+Подставляя компоненты напряжения из \cref{eq:equation17} в \cref{eq:equation23} получаем:
+
+\begin{equation}
+	\label{eq:equation25}
+	\sigma_{zz} = \frac{E \alpha}{1 - \nu} \big ( \bar{\theta} - \theta \big )
+\end{equation}
+
+По-другому, сложив компоненты напряжений (радиальные и тангенсальные) из \cref{eq:equation17}:
+
+\begin{equation}
+	\label{eq:equation26}
+	\sigma_{rr} + \sigma_{\phi\phi} = \frac{E \alpha}{1-\nu} \big [\frac{2}{b^2 - a^2} \int_a^b \theta rdr - \theta \big] = \frac{E \alpha}{1 - \nu} \big ( \bar{\theta} - \theta \big )
+\end{equation}
+
+Для этого особого случая
+\begin{equation}
+	\label{eq:equation27}
+	\sigma_{rr} + \sigma_{\phi\phi} = \sigma_{zz}
+\end{equation}
+
+Когда толстостенный цилиндр также подвергается внутреннему и внешнему давлению, \(p_a\) и \(p_b\), соответственно, полное напряжение в цилиндре становится суммой тепловых и механических напряжений. Механические напряжения получаются из тех же управляющих уравнений, за исключением того, что член \(T\) исчезает. Таким образом, последовательное решение этих уравнений для радиального перемещения \(u\) дается уравнением \cref{eq:equation7} за исключением члена, включающего интеграл от
+температуры, который исчезает, а радиальное перемещение становится равным:
+
+\begin{equation}
+	\label{eq:equation28}
+	u = C_1 r + \frac{C_2}{r}
+\end{equation}
+
+Подставляя это перемещение в \cref{eq:equation4}, а потом в \cref{eq:equation2} при следующих граничных условиях
+
+\begin{equation}
+	\label{eq:equation29}
+	\begin{split}
+		\sigma_{rr} = -p_a \quad \text{на границе} \quad r=a \\
+		\sigma_{rr} = -p_b \quad \text{на границе} \quad r=b
+	\end{split}
+\end{equation}
+
+даёт уравнения радиальных и тангенсальных напряжений для механического нагружения:
+
+\begin{equation}
+	\label{eq:equation30}
+	\begin{split}
+		\sigma_{rr} = \frac{p_a a^2}{b^2 - a^2} \big (1-\frac{b^2}{r^2} \big )- \frac{p_b b^2}{b^2-a^2} \big (1 - \frac{a^2}{r^2} \big )\\
+		\sigma_{\phi\phi} = \frac{p_a a^2}{b^2 - a^2} \big (1+\frac{b^2}{r^2} \big )- \frac{p_b b^2}{b^2-a^2} \big (1 + \frac{a^2}{r^2} \big )
+	\end{split}
+\end{equation}
+
+Как вывод, когда толстый цилиндр подвергается как тепловым, так и механическим напряжения, результирующие напряжения являются суммой уравнений \cref{eq:equation21} и \cref{eq:equation30}.
