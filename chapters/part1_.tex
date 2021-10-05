@@ -354,4 +354,187 @@
 
 где \(\beta_{n1}\) и \(\beta_{n2}\) и константы интегрирования \(A_{n1}\) и \(A_{n2}\) определены ранее {\color{red} вот раньше из ГУ} 
 
-TEST
+При заданном температурном распределении (поле), уравнение Навье может быть разрешено в перемещениях \(u(r, \phi) \) и \(v(r, \phi) \). Компоненты перемещений можно разложить в ряд Фурье как:
+\begin{equation}
+\label{eq:ch2:equation7}
+\begin{split}
+	u(r, \phi) &= \sum_{n=-\infty}^{\infty} u_n(r) e^{in\phi}\\
+	v(r, \phi) &= \sum_{n=-\infty}^{\infty} v_n(r) e^{in\phi}
+\end{split}
+\end{equation}
+где \(u_n(r)\) и \(v_n(r)\) коэффициенты в разложении Фурье значений \(u(r, \phi)\) и \(v(r, \phi)\) соответсвенно, которые определяются как:
+
+\begin{equation}
+\label{eq:ch2:equation8}
+\begin{split}
+	u_n(r) &= \frac{1}{2\pi} \sum_{-\pi}^{\pi} u(r, \phi) e^{-in\phi} d\phi\\
+	v_n(r) &= \frac{1}{2\pi} \sum_{-\pi}^{\pi} v(r, \phi) e^{-in\phi} d\phi
+\end{split}
+\end{equation}
+
+Подставляя уравнения \cref{eq:ch2:equation6} и \cref{eq:ch2:equation7} в \cref{eq:ch2:equation5}, получим
+
+\begin{equation}
+\label{eq:ch2:equation9}
+\begin{split}
+	&u_n^{\prime\prime} + \big ( m_1 + 1 \big ) \frac{1}{r} u_n^{\prime} + \big [ \frac{\nu m_1}{1-\nu} -1 - \frac{\big ( 1 - 2\nu \big )n^2}{2-2\nu} \big ] \frac{1}{r^2}u_n + \big(\frac{in}{2-2\nu} \big)\frac{1}{r}v_n^{\prime}\\
+&+in \big [ \frac{ \big (4+2\nu \big )\nu -3}{2-2\nu}\big ]\frac{1}{r^2}v_n = \frac{\big (1+\nu \big ) \alpha_0}{\big (1-\nu \big )l^{m2}} \big [ \big (m_1 + m_2 +\beta_{n1} \big )A_{n1} r^{\beta_{n1}+m_2-1} \\
+&+ \big(m_1 +m_2 + \beta_{n2} \big ) A_{n2} r^{\beta_{n1}+m2-1} \big ]
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:ch2:equation10}
+\begin{split}
+	&v_n^{\prime\prime} + \big ( m_1 + 1 \big ) \frac{1}{r} v_n^{\prime} - \big [ m_1 + 1 + \frac{\big (2-2\nu \big )n^2}{1-2\nu} \big ] \frac{1}{r^2}v_n + \big(\frac{in}{1-2\nu} \big)\frac{1}{r}u_n^{\prime}\\
+&+ in \big (\frac{3-4\nu}{1-2\nu} + m_1 \big ) \frac{1}{r^2} u_n = \frac{in \big (2+2\nu \big)}{\big (1-2\nu \big) l^{m_2}} \alpha_0 \big [ A_{n1} r^{\beta_{n1}+m_2-1} + A_{n2} r^{\beta_{n_2}+m_2 -1}\big ]
+\end{split}
+\end{equation}
+
+Уравнения \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10} образуют систему обыкновенных дифференциальных уравнений (СОДУ) с общим и частным решением. Решение в общем виде предполагается найти в виде:
+
+\begin{equation}
+\label{eq:ch2:equation11}
+\begin{split}
+	u_n^g(r) &= Br^{\eta} \quad \text{g --- general --- общее решение}\\
+	v_n^g(r) &= Cr^{\eta}
+\end{split}
+\end{equation}
+
+Подставляя \cref{eq:ch2:equation11} и \cref{eq:ch2:equation9} в \cref{eq:ch2:equation10}, получим:
+
+\begin{equation}
+\label{eq:ch2:equation12}
+\begin{split}
+	&\big [ \eta \big (\eta-1 \big) + \big (m_1 +1 \big) \eta + \frac{\nu m_1}{1-\nu} - 1 -\frac{ \big (1-2\nu \big)n^2}{2-2\nu} \big ] B \\
+&+ i \big [\frac{\eta}{2-2\nu} + \frac{\big (4+2m_1 \big ) \nu -3 }{2-2\nu}  \big ] n C=0\\
+&i \big [\frac{\eta}{1-2\nu} + \frac{3-4\nu}{1-2\nu} + m_1 \big ]nB+\big [ \eta \big ( \eta-1\big ) + \big (m_1 +1 \big ) \\
+&- m_1 -1 \frac{\big (2-2\nu \big ) n^2}{1-2\nu} \big ] C=0
+\end{split}
+\end{equation}
+
+Для получения нетривиального решения \( (B, C) \) уравнения \cref{eq:ch2:equation12}, \( \eta \) должно удовлетворять следующему уравнению:
+
+\begin{equation}
+\label{eq:ch2:equation13}
+\begin{split}
+	&\big [\eta \big (\eta -1 \big )+ \big (m_1 +1 \big ) \eta + \frac{\nu m_1}{1-\nu} -1 - \frac{\big (1 - 2\nu \big ) n^2}{2-2\nu} \big ] \big [ \eta \big (\eta -1 \big ) \\
+	&+ \big ( m_1 + 1 \big ) \eta - m_1 - 1 - \frac{\big ( 2-2\nu \big ) n^2}{1-2\nu} \big ] +n^2 \big [ \frac{\eta}{2-2\nu} \\
+	&+  \frac{ \big ( 4+2m_1 \big )\nu -3}{2-2\nu} \big ] \big [ \frac{\eta}{1-2\nu} + \frac{3-4\nu}{1-2\nu} +m_1 \big ] = 0
+\end{split}
+\end{equation}
+
+Уравнение {eq:ch2:equation13} имеет четыре (4) корня --- от \( \eta_{n1} \) до \( \eta_{n4} \). Таким образом, общее решение уравнений {eq:ch2:equation9} и {eq:ch2:equation10} принимает вид:
+
+\begin{equation}
+\label{eq:ch2:equation14}
+\begin{split}
+	u_n^g(r) &= \sum_{j=1}^4 B_{n_j} r^{\eta_{n_j}}\\
+	v_n^g(r) &= \sum_{j=1}^4 N_{n_j} B_{n_j} r^{\eta_{n_j}}
+\end{split}
+\end{equation}
+где \( N_{n_j} = C_{n_j} / B_{n_j}\) и получено из первого уравнения \cref{eq:ch2:equation12} как
+
+\begin{equation}
+\label{eq:ch2:equation15}
+	N_{n_j} = \frac{i \big [ \eta_j \big (\eta_j -1 \big ) + \big ( m_1 +1 \big ) n_j +\frac{\nu m_1}{1-\nu} -1 - \frac{\big (1-2\nu \big ) n^2}{2-2\nu} \big ]}{n \big [ \frac{n_j}{2-2\nu} + \frac{\big (4+2m_1 \big )\nu -3}{2-2\nu} \big ]}
+\end{equation}
+
+Для изотропного материала \((m_1=0) \) и для \(n=1\), уравнение \cref{eq:ch2:equation13} имеет несколько корней, рассмотрим решение в виде \( \ln{(r/r_0)},  r_0 > 0\), для \(u_n(r), v_n(r) \).
+
+Поиск частного решения \(u_n^p(r), v_n^p(r) \), будем делать в виде:
+
+\begin{equation}
+\label{eq:ch2:equation16}
+\begin{split}
+	u_n^p(r) &= D_{n_1} r^{\beta_{n_1} + m_1 + 1} + D_{n_2} r^{\beta_{n_2} +m_2 + 1} \quad \text{p --- particular --- частное}\\
+	v_n^p(r) &= D_{n_3} r^{\beta_{n_1} + m_2 + 1} + D_{n_2} r^{\beta_{n_4} +m_2 + 1}
+\end{split}
+\end{equation}
+
+Подставляя уравнение \cref{eq:ch2:equation16} в \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10}, получаем:
+
+\begin{equation}
+\label{eq:ch2:equation17}
+\begin{split}
+	&d_1 D_{n_1} r^{\beta_{n_1}+m_2-1} + d_2 D_{n_2} r^{\beta_{n_2}+m_2-1} + d_3 D_{n_3} r^{\beta_{n_1}+m_2-1} \\
+	&+d_4 D_{n_4} r^{\beta_{n_2}+m_2-1} = d_5  r^{\beta_{n_1}+m_2-1} + d_6  r^{\beta_{n_2}+m_2-1}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:ch2:equation18}
+\begin{split}
+	&d_7 D_{n_3} r^{\beta_{n_1}+m_2-1} + d_8 D_{n4} r^{\beta_{n_2}+m_2-1} + d_93 D_{n_1} r^{\beta_{n_1}+m_2-1} \\
+	&+d_{10} D_{n_2} r^{\beta_{n_2}+m_2-1} = d_{11} r^{\beta_{n_1}+m_2-1} + d_{12}  r^{\beta_{n_2}+m_2-1}
+\end{split}
+\end{equation}
+
+где константы от \(d_1\) до \(d_{12}\) определяются по следующим формулам:
+
+\begin{equation*}
+\begin{split}
+	d_1 &= \big (\beta_{n_1}+m_2-1 \big ) \big (\beta_{n_1}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_1}+m_2+1 \big )+ \frac{\nu m_1}{1-\nu}\\
+	& - 1 - \frac{\big (1-2\nu \big )n^2}{2-2\nu}\\
+	d_2 & = \big (\beta_{n_2}+m_2-1 \big ) \big (\beta_{n_2}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_2}+m_2+1 \big )+ \frac{\nu m_1}{1-\nu}\\
+	& - 1 - \frac{\big (1-2\nu \big )n^2}{2-2\nu}\\
+	d_3 &= in \big ( \frac{\beta_{n_1}+m_2-1}{2-2\nu} + \frac{\big (4+2m_1 \big )\nu -3}{2-2\nu}  \big) \\
+	d_4 &= in \big ( \frac{\beta_{n_2}+m_2-1}{2-2\nu} + \frac{\big (4+2m_1 \big )\nu -3}{2-2\nu}  \big) \\
+	d_5 & = \frac{\big (1+\nu \big )\big (m_1+m_2+\beta_{n_1} \big ) \alpha_0 A_{n_1}}{\big ( 1-\nu \big )l^{m_2}} \\
+	d_6 & = \frac{\big (1+\nu \big )\big (m_1+m_2+\beta_{n_2} \big ) \alpha_0 A_{n_2}}{\big ( 1-\nu \big )l^{m_2}} \\
+	d_7 & =  \big (\beta_{n_1}+m_2-1 \big ) \big (\beta_{n_1}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_1}+m_2+1 \big ) -m_1 \\
+		& - 1 - \frac{\big (2-2\nu \big )n^2}{1-2\nu}\\
+	d_8 & =  \big (\beta_{n_2}+m_2-1 \big ) \big (\beta_{n_2}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_2}+m_2+1 \big ) -m_1 \\
+		& - 1 - \frac{\big (2-2\nu \big )n^2}{1-2\nu}\\
+	d_9 &= in \big ( \frac{\beta_{n_1}+m_2-1}{1-2\nu} + \frac{3-4 \nu}{1-2\nu} +m_1  \big) \\
+	d_{10} &= in \big ( \frac{\beta_{n_2}+m_2-1}{1-2\nu} + \frac{3-4 \nu}{1-2\nu} +m_1  \big) \\
+	d_{11} &= \frac{in \big(2+2\nu \big ) \alpha_0 A_{n_1}}{\big ( 1-2\nu \big ) l^{m_2}}\\
+	d_{12} &= \frac{in \big(2+2\nu \big ) \alpha_0 A_{n_2}}{\big ( 1-2\nu \big ) l^{m_2}}
+\end{split}
+\end{equation*}
+
+Приравнивая коэффициенты при одинаковых степенях
+\begin{equation}
+\label{eq:ch2:equation19}
+\begin{split}
+	d_1 D_{n_1} +d_3 D_{n_3} &= d_5\\
+	d_{9} D_{n_1} +d_7 D_{n_3} &= d_{11}
+\end{split}
+\end{equation}
+\begin{equation}
+\label{eq:ch2:equation20}
+\begin{split}
+	d_2 D_{n_2} +d_4 D_{n_4} &= d_6\\
+	d_{10} D_{n_2} +d_8 D_{n_4} &= d_{12}
+\end{split}
+\end{equation}
+
+Уравнения \cref{eq:ch2:equation19} и \cref{eq:ch2:equation20} образуют систему линейных алгебраических уравнений (СЛАУ), где решение можно найти методом Крамера, например:
+
+\begin{equation}
+\label{eq:ch2:equation21}
+\begin{split}
+	D_{n_1} & = \frac{d_5 d_7 - d_3 d_{11} }{d_1 d_7 - d_3 d_{9}} \quad  D_{n_2}  = \frac{d_6 d_8 - d_4 d_{12} }{d_2 d_8 - d_4 d_{10}}\\
+	D_{n_3} & = \frac{d_1 d_{11} - d_5 d_{9} }{d_1 d_7 - d_3 d_{9}} \quad  D_{n_4}  = \frac{d_2 d_{12} - d_6 d_{10} }{d_2 d_8 - d_4 d_{10}}
+\end{split}
+\end{equation}
+
+обеспечивая положительными знаменатели, т.е. \( d_1 d_7 - d_3 d_{9} \ne 0\) и \( d_2 d_8 - d_4 d_{10} \ne 0\). Полное решение для  \(u_n(r), v_n(r) \) определяется как сумма общего и частного решения, запишется в виде:
+
+\begin{equation}
+\label{eq:ch2:equation22}
+\begin{split}
+	u_n(r) & =u_n^g(r)+u_n^p(r)\\
+	v_n(r) &= v_n^g(r)+v_n^p(r)
+\end{split}
+\end{equation}
+
+Отсюда
+
+\begin{equation}
+\label{eq:ch2:equation23}
+\begin{split}
+	u_n(r) & =\sum_{j=1}^4 B_{n_j} r^{\eta_{n_j}} + D_{n_1} r^{\beta_{n_1} +m_2 +1} +D_{n_2} r^{\beta_{n_2} +m_2 +1} \\
+	v_n(r) &= \sum_{j=1}^4 N_{n_j} B_{n_j} r^{\eta_{n_j}} + D_{n_3} r^{\beta_{n_1} +m_2 +1} +D_{n_4} r^{\beta_{n_2} +m_2 +1} 
+\end{split}
+\end{equation}
