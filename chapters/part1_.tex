@@ -590,3 +590,57 @@ j=1, 2
 	& \left. + D_{n4} r^{\beta_{n1}+m_2+1} \right ] e^{in\phi}
 \end{split}
 \end{equation}
+
+Подставляя \cref{eq:ch2:equation28} в  \cref{eq:ch2:equation1} и  \cref{eq:ch2:equation2}, получим соотношения для напряжений:
+
+\begin{equation}
+\label{eq:ch2:equation29}
+\begin{split}
+	\sigma_{rr} =& \frac{E_0}{\left (1+\nu \right ) \left (1-2\nu \right) l^{m_1}} 
+		\Big \{ \sum_{j=1}^2 \left [ \left ( 1 -\nu \right ) \eta_{0j}+\nu \right ] B_{0j}r^{\eta_{0j}+m_1-1}  \left [\nu \beta_{0j} +\nu m_2 + 1 \right.  \\
+	&-   \left. \frac{\left ( 1 +\nu \right ) \alpha_0}{l^{m_2}} \right ] D_{0j} r^{\beta_{0j}+m_1+m_2} +
+		 \sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ \left ( 1 -\nu \right ) \eta_{nj} +\nu \left ( in N_{nj}+1 \right ) \right ]  \\
+	&\times B_{nj} r^{\eta_{nj}+m_1-1}+\big [ \left (1-\nu \right ) \left (\beta_{n1}+m_2+1 \right ) D_{n1} + \nu \left ( in D_{n3} +D_{n1} \right )\\
+	&-  \frac{\left ( 1+\nu \right ) \alpha_0}{l^{m_2}} A_{n1} \big ] r^{\beta_{n1}+m_1+m_2}+ \big [ \left (1-\nu \right ) \left ( \beta_{n2}+m_2+1 \right ) D_{n2}  +  \nu \left (inD_{n4}+D_{n2} \right )\\
+	&- \frac{\left (1+\nu \right) \alpha_0}{l^{m_2}} A_{n2} \big ] r^{\beta_{n2}+m_1+m_2} \big\}  \Big \} e^{in\phi}\\
+	%
+	\sigma_{\phi \phi} =& \frac{E_0}{\left (1+\nu \right ) \left (1-2\nu \right) l^{m_1}}
+	 	\Big \{ \sum_{j=1}^2 \left [ \left ( 1 -\nu \right ) \eta_{0j}+\nu \right ] B_{0j}r^{\eta_{0j}+m_1-1} \\
+	&+ \left [ \left ( 1 -\nu \right ) \beta_{0j}+m_2+1 - \frac{\left (1-\nu \right)\alpha_0}{l^{m_2}} \right ]D_{0j} r^{\beta_{0j}+m_1+m_2} \\
+	&+  \sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ \nu \eta_{nj}+ \left ( 1 -\nu \right ) \left ( in N_{nj}+1 \right ) \right ]  B_{nj} r^{\eta_{nj}+m_1-1}\\
+	&+ \left [ \nu \left ( \beta_{n1}+m_2+1\right ) D_{n1} + \left (1-\nu \right ) \left (inD_{n3}+D_{n1} \right )-\frac{ \left (1+\nu \right ) \alpha_0}{l^{m_2}}A_{n1}\right ]\\
+	&\times r^{ \beta_{n1}+m_1+m_2} + \Big [ \nu \left (\beta_{n2}+m_2+1 \right ) D_{n2} +\left (1-\nu \right )\left ( in D_{n4}+D_{n2} \right )\\
+	&- \frac{\left (1+\nu \right ) \alpha_0}{l^{m_2}}A_{n2} \Big  ] r^{\beta_{n2}+m_1+m_2} \big\}  \Big \} e^{in\phi} \\
+	%
+	\sigma_{r\phi} =& \frac{E_0}{\left (1+\nu \right ) l^{m_1}}
+		\Big \{ \left ( \eta_{04}-1 \right) B_{04} r^{\eta_{04}+m_1-1} +\sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ in+ \left (\eta_{ni} -  1  \right ) N_{nj} \right ]\\
+	&\times B_{nj} r^{\eta_{nj}+m_1-1} + \left [  in D_{n1} + \left ( \beta_{n1} + m_2 \right ) D_{n3} \right ] r^{\beta_{n1}+m_1+m_2} \\
+	&+\left [ in D_{n2} + \left ( \beta_{n2} + m_2 \right ) D_{n4} \right ] r^{\beta_{n2}+m_1+m_2} \big\} \Big \} e^{in\phi}
+\end{split}
+\end{equation}
+
+Для определения констант \(B_{nj}\) можно использовать любые доступные граничные условия для перемещений или напрящений, напривер заданных в виде:
+
+\begin{equation}
+\label{eq:ch2:equation30}
+\begin{split}
+	u(a, \phi) = g_1 (\phi) \\
+	u(b, \phi) = g_2 (\phi) \\
+	v(a, \phi) = g_3 (\phi) \\
+	v(b, \phi) = g_4 (\phi) \\
+\end{split}
+\end{equation}
+
+или
+
+\begin{equation}
+\label{eq:ch2:equation31}
+\begin{split}
+	\sigma_{rr}(a, \phi) = g_5 (\phi) \\
+	\sigma_{rr}(b, \phi) = g_6 (\phi) \\
+	\sigma_{r\phi}(a, \phi) = g_7 (\phi) \\
+	\sigma_{r\phi}(b, \phi) = g_8 (\phi) \\
+\end{split}
+\end{equation}
+
+Следует отметить, что в уравнения с \cref{eq:ch2:equation24} по \cref{eq:ch2:equation31} входят четыре неизвестные \(B_{n1}\), \(B_{n2}\), \(B_{n3}\) и \(B_{n4}\). Для их определения необходимы четыре граничных условия. Эти условия можно выбрать из условий \cref{eq:ch2:equation30} или \cref{eq:ch2:equation31}.
