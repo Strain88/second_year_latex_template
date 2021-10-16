@@ -17,6 +17,20 @@
 
 %%% Гиперссылки %%%
 
-\usepackage{hyperref}[2012/11/06]
+\usepackage[unicode]{hyperref}[2012/11/06]
 \usepackage[russian]{cleveref}
+
+
+% Реализация пакетом biblatex через движок biber
+
+%%% Реализация библиографии пакетами biblatex и biblatex-gost с использованием движка biber %%%
+\usepackage[autostyle]{csquotes}
+
+\usepackage[%
+backend=biber,% движок
+bibencoding=utf8,% кодировка bib файла
+sorting=none,% настройка сортировки списка литературы
+% defernumbers=true, % откомментируйте, если требуется правильная нумерация ссылок на литературу в режиме черновика. Замедляет сборку
+]{biblatex}[2016/09/17]%
+\addbibresource{external.bib}
 
