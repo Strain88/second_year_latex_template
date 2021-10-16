@@ -1,0 +1,646 @@
+\chapter{Простая постановка задачи}\label{ch:ch10}
+
+\section{Цилиндр с радиальным изменением температуры}\label{sec:ch10/sec1}
+
+Рассмотрим сплошной цилиндр с осью симметрии \(oz\) и радиусом \(b\) и с законом изменения радиальной температуры выраженной \(\theta(r)=T(r)-T_0\), где \(T_0\)~--- начальная температура. Предположим также плоскую деформацию \(\epsilon_{zz}=\epsilon_{rz}=\epsilon_{\phi z}=0\). Тогда напряженно-деформированное состояние запишется в виде (записываем сразу в цилиндрических координатах и продолжаем работать в них):
+\begin{equation}
+	\label{eq:ch10:equation1}
+\begin{split}
+	\epsilon_{rr} &= \frac{1}{E} \big [\sigma_{rr} - \nu \big(\sigma_{\phi\phi} + \sigma_{zz}\big) \big] + \alpha \theta \\
+	\epsilon_{\phi\phi} &= \frac{1}{E} \big [\sigma_{\phi\phi} - \nu \big(\sigma_{rr} + \sigma_{zz}\big) \big] + \alpha \theta \\
+	\sigma_{zz} &= \nu \big(\sigma_{rr} + \sigma_{\phi\phi}\big) - E\alpha\theta \\
+\end{split}
+\end{equation}	
+
+Выразим напряжения через деформации, получим
+\begin{equation}
+	\label{eq:ch10:equation2}
+	\begin{split}
+		\sigma_{rr} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\epsilon_{rr} + \nu\epsilon_{\phi\phi} - \big(1+\nu\big )\alpha\theta\big] \\
+		\sigma_{\phi\phi} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\epsilon_{\phi\phi} + \nu\epsilon_{rr} - \big(1+\nu\big )\alpha\theta\big] 
+	\end{split}
+\end{equation}
+
+Уравнение равновесия для осесимметричной задачи выглядит следующим образом:
+\begin{equation}
+	\label{eq:ch10:equation3}
+		\frac {d\sigma_{rr} }{dr} + \frac {\sigma_{rr}-\sigma_{\phi\phi}}{r}=0
+\end{equation}
+при этом деформации выраженные через радиальные перемещения \(u\) выглядят так:
+\begin{equation}
+	\label{eq:ch10:equation4}
+	\epsilon_{rr} = \frac{du}{dr} \qquad \epsilon_{\phi\phi} = \frac{u}{r}
+\end{equation}
+
+Уравнения~\cref{eq:ch10:equation4} подставим в \cref{eq:ch10:equation2}, что дает следующее:
+\begin{equation}
+	\label{eq:ch10:equation5}
+	\begin{split}
+		\sigma_{rr} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\frac{du}{dr} + \nu\frac{u}{r} - \big(1+\nu\big )\alpha\theta\big] \\
+		\sigma_{\phi\phi} = \frac{E}{(1+\nu)(1-2\nu)} \big[\big(1-\nu \big)\frac{u}{r} + \nu\frac{du}{dr} - \big(1+\nu\big )\alpha\theta\big] 
+	\end{split}
+\end{equation}
+
+Подставляя полученные уравнения \cref{eq:ch10:equation5} в уравнение равновесия \cref{eq:ch10:equation3} и немного упрощая, получим уравнение равновесия в радиальных перемещениях \(u\):
+\begin{equation}
+	\label{eq:ch10:equation6}
+	\frac {d}{dr} \big[\frac{1}{r} \frac{d \big(ur \big)}{dr} \big] = \frac{1+\nu}{1-\nu}\alpha\frac{d\theta}{dr}
+\end{equation}
+
+Интегрирование \cref{eq:ch10:equation6} дает следующее уравнение:
+\begin{equation}
+	\label{eq:ch10:equation7}
+	u = \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \int_0^r \theta rdr +C_1r +\frac{C_2}{r}
+\end{equation}
+где \(C_1\) и \(C_2\) постоянные интегрирования. Поскольку перемещения должны быть конечными в центре (\(r=0\)), отсюда следует, что \(C_2\) должно быть равным нулю. Тогда компоненты перемещения в \cref{eq:ch10:equation4} принимаю вид:
+\begin{equation}
+	\label{eq:ch10:equation8}
+	\begin{split}
+		\epsilon_{rr} &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1 + \frac{1+\nu}{1-\nu} \alpha\theta\\
+		\epsilon_{\phi\phi} &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1
+	\end{split}
+\end{equation}
+
+и напряжения из уравнения \cref{eq:ch10:equation2} превращяются:
+
+\begin{equation}
+	\label{eq:ch10:equation9}
+	\begin{split}
+		\sigma_{rr} &= -\frac{E}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr +C_1 \frac{E}{\big(1+\nu\big)\big(1-2\nu\big)}\\
+		\sigma_{\phi\phi} &= -\frac{E}{1-\nu} \frac{\alpha}{r^2} \int_0^r \theta rdr -\frac{E \alpha \theta}{1-\nu} +C_1\frac{E}{\big(1+\nu\big)\big(1-2\nu\big)}
+	\end{split}
+\end{equation}
+
+Определим константуу \(C_1\) используя граничные условия
+\begin{equation}
+	\label{eq:ch10:equation10}
+	\sigma_{rr} = 0 \quad \text{на границе} \quad r=b
+\end{equation}
+что приводит к следующему
+\begin{equation}
+	\label{eq:ch10:equation11}
+	C_1 = \frac{\alpha \big(1+\nu\big) \big(1-2\nu\big)}{\big(1-\nu\big) b^2} \int_0^b \theta rdr
+\end{equation}
+
+После подстановки \cref{eq:ch10:equation7} в \cref{eq:ch10:equation9}, получили:
+\begin{equation}
+	\label{eq:ch10:equation12}
+	\begin{split}
+		u &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \big[ \int_0^r \theta rdr +\big(1-2\nu\big ) \frac{r^2}{b^2}\int_0^b \theta r dr\big]\\
+		\sigma_{rr} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2}\int_0^b \theta rdr -\frac{1}{r^2}\int_0^r \theta r dr\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2}\int_0^b \theta rdr +\frac{1}{r^2}\int_0^r \theta r dr - \theta \big]
+	\end{split}
+\end{equation}
+
+Напряжения в осевом направлении, \(\sigma_{zz}\), получим из \cref{eq:ch10:equation1}
+
+\begin{equation}
+	\label{eq:ch10:equation13}
+	\sigma_{zz} = \frac{E \alpha}{1-\nu}\big[ \frac{2\nu}{b^2}\int_0^b \theta rdr  - \theta \big]
+\end{equation}	
+	
+Для тонкостенного цилиндра с радиусами \(a\) и \(b\), определяющие уравнения для перемещений записываются в этих границах --- от \(a\) внутреннего радиуса, до \(r\). Из \cref{eq:ch10:equation7}
+
+\begin{equation}
+	\label{eq:ch10:equation14}
+	u = \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \int_a^r \theta rdr +C_1r +\frac{C_2}{r}
+\end{equation}
+
+Подставляя \(u\) из \cref{eq:ch10:equation4} \cref{eq:ch10:equation2}, радиальные напряжения \(\sigma_{rr}\) находятся следующим образом:
+
+\begin{equation}
+	\label{eq:ch10:equation15}
+	\sigma_{rr} = E \big [-\frac{\alpha}{\big(1-\nu \big) r^2} \int_a^r \theta rdr + \frac{C_1}{\big (1+\nu\big ) \big(1-2\nu \big)} - \frac{C_2}{\big(1+\nu\big) r^2} \big]
+\end{equation}
+
+
+Применим граничные условия
+\begin{equation}
+	\label{eq:ch10:equation16}
+	\begin{split}
+		\sigma_{rr} = 0 \quad \text{на границе} \quad r=a\\
+		\sigma_{rr} = 0 \quad \text{на границе} \quad r=b
+	\end{split}
+\end{equation}
+
+приводит к следующему
+
+\begin{equation*}
+	\begin{split}
+		C_1 &= \frac{\big(1+\nu \big)\big(1-2\nu \big)}{\big(1-\nu \big)}  \frac{\alpha}{\big(b^2-a^2 \big)} \int_a^b \theta rdr\\
+		C_2 &= \frac{\big(1+\nu \big)}{\big(1-\nu \big)}\frac{\alpha a^2}{\big(b^2-a^2 \big)}\int_a^b \theta rdr
+	\end{split}
+\end{equation*}
+
+Подставим \(C_1\) и \(C_2\) в \cref{eq:ch10:equation14}, радиальные перемещения и напряжения получаются следующими:
+
+\begin{equation}
+	\label{eq:ch10:equation17}
+	\begin{split}
+		u &= \frac{1+\nu}{1-\nu} \frac{\alpha}{r} \big[ \frac{\big( 1-2\nu \big) r^2 +a^2}{b^2-a^2} \int_a^b \theta rdr + \int_a^r \theta r dr\big]\\
+		\sigma_{rr} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2-a^2} \big(1-\frac{a^2}{r^2} \big)\int_a^b \theta rdr -\frac{1}{r^2}\int_a^r \theta r dr\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha}{1-\nu}\big[ \frac{1}{b^2-a^2}\big(1+\frac{a^2}{r^2} \big)\int_a^b \theta rdr +\frac{1}{r^2}\int_a^r \theta r dr - \theta \big]
+	\end{split}
+\end{equation}	
+	
+Осевые напряжения из \cref{eq:ch10:equation1}	получаются следующими:
+
+\begin{equation}
+	\label{eq:ch10:equation18}
+	\sigma_{zz} = \frac{E \alpha}{1-\nu}\big[ \frac{2\nu}{b^2-a^2}\int_a^b \theta rdr  - \theta \big]	
+\end{equation}
+
+и осевая сила \(F_z\) в этом случае, \(\epsilon_{zz}=0\)
+
+\begin{equation}
+	\label{eq:ch10:equation19}
+	F_z = \int_a^b 2 \pi r \sigma_{zz} dr
+\end{equation}
+
+
+Если положить внутреннюю температуру в цилиндре \(T_a\), а внешнюю \(T_b\), то распределение температуры можно записать в виде:
+
+\begin{equation}
+	\label{eq:ch10:equation20}
+	{\color{red}T=\frac{T_a - T_b}{\ln{\frac{b}{a}}} \big(\ln{\frac{b}{r}} \big) + T_b}
+\end{equation}
+
+\[T_a - T_b = T_d\]
+{\color{red}TODO: объяснить откуда это пришло?}
+
+Подставляя температурное распределение в напряжения для полого цилиндра с фиксированными гранями \cref{eq:ch10:equation17}, получаем:
+
+\begin{equation}
+	\label{eq:ch10:equation21}
+	\begin{split}
+		\sigma_{rr} &= \frac{E \alpha T_d}{2 \big (1 -\nu \big) \ln{\frac{b}{a}}}\big[ \ln{\frac{b}{r}} + \frac{a^2}{b^2-a^2} \big(1-\frac{b^2}{r^2} \big) \ln{\frac{b}{a}}\big]\\
+		\sigma_{\phi\phi} &= \frac{E \alpha T_d}{2 \big (1-\nu \big ) \ln{\frac{b}{a}} }\big[1 - \ln{\frac{b}{r}} - \frac{a^2}{b^2-a^2}\big(1+\frac{b^2}{r^2} \big)\ln{\frac{b}{a}} \big] \\
+		\sigma_{zz} &= \frac{\nu E \alpha T_d}{2 \big (1-\nu \big) \ln{\frac{b}{a}}} \big [1-\frac{2 a^2}{b^2 - a^2}\ln{\frac{b}{a}}-\frac{2}{\nu} \ln{\frac{b}{r}} \big] - E \alpha \big(T_b - T_0 \big)
+	\end{split}
+\end{equation}
+
+Теперь рассмотрим случай обобщенного условия деформации в плоскости для полого толстого цилиндра. Из уравнения ({\color{red}Сослаться на 1.19}) следует, что осевая нагрузка равна нулю
+
+\begin{equation}
+	\label{eq:ch10:equation22}
+	F_z = \int_a^b 2 \pi r \sigma_{rr} dr = 0
+\end{equation}
+
+Если переписать осевую деформацию цилинда \(\epsilon_{zz}\) с нагревом в полярных координатах, то получим
+
+\begin{equation}
+	\label{eq:ch10:equation23}
+	\sigma_{zz} = r \big (\sigma_{rr}+\sigma_{\phi\phi} \big) + E \alpha (\bar{\theta} - \theta)
+\end{equation}
+
+где \(\theta = T - T_0\) и
+
+\begin{equation}
+	\label{eq:ch10:equation24}
+	\bar{\theta} = \frac{1}{A} \int_A dA = \frac{2 \pi}{\pi \big (b^2 - a^2 \big)} \int_a^b \theta rdr = \frac{2}{b^2-a^2} \int_a^b \theta rdr
+\end{equation}
+
+
+Подставляя компоненты напряжения из \cref{eq:ch10:equation17} в \cref{eq:ch10:equation23} получаем:
+
+\begin{equation}
+	\label{eq:ch10:equation25}
+	\sigma_{zz} = \frac{E \alpha}{1 - \nu} \big ( \bar{\theta} - \theta \big )
+\end{equation}
+
+По-другому, сложив компоненты напряжений (радиальные и тангенсальные) из \cref{eq:ch10:equation17}:
+
+\begin{equation}
+	\label{eq:ch10:equation26}
+	\sigma_{rr} + \sigma_{\phi\phi} = \frac{E \alpha}{1-\nu} \big [\frac{2}{b^2 - a^2} \int_a^b \theta rdr - \theta \big] = \frac{E \alpha}{1 - \nu} \big ( \bar{\theta} - \theta \big )
+\end{equation}
+
+Для этого особого случая
+\begin{equation}
+	\label{eq:ch10:equation27}
+	\sigma_{rr} + \sigma_{\phi\phi} = \sigma_{zz}
+\end{equation}
+
+Когда толстостенный цилиндр также подвергается внутреннему и внешнему давлению, \(p_a\) и \(p_b\), соответственно, полное напряжение в цилиндре становится суммой тепловых и механических напряжений. Механические напряжения получаются из тех же управляющих уравнений, за исключением того, что член \(T\) исчезает. Таким образом, последовательное решение этих уравнений для радиального перемещения \(u\) дается уравнением \cref{eq:ch10:equation7} за исключением члена, включающего интеграл от
+температуры, который исчезает, а радиальное перемещение становится равным:
+
+\begin{equation}
+	\label{eq:ch10:equation28}
+	u = C_1 r + \frac{C_2}{r}
+\end{equation}
+
+Подставляя это перемещение в \cref{eq:ch10:equation4}, а потом в \cref{eq:ch10:equation2} при следующих граничных условиях
+
+\begin{equation}
+	\label{eq:ch10:equation29}
+	\begin{split}
+		\sigma_{rr} = -p_a \quad \text{на границе} \quad r=a \\
+		\sigma_{rr} = -p_b \quad \text{на границе} \quad r=b
+	\end{split}
+\end{equation}
+
+даёт уравнения радиальных и тангенсальных напряжений для механического нагружения:
+
+\begin{equation}
+	\label{eq:ch10:equation30}
+	\begin{split}
+		\sigma_{rr} = \frac{p_a a^2}{b^2 - a^2} \big (1-\frac{b^2}{r^2} \big )- \frac{p_b b^2}{b^2-a^2} \big (1 - \frac{a^2}{r^2} \big )\\
+		\sigma_{\phi\phi} = \frac{p_a a^2}{b^2 - a^2} \big (1+\frac{b^2}{r^2} \big )- \frac{p_b b^2}{b^2-a^2} \big (1 + \frac{a^2}{r^2} \big )
+	\end{split}
+\end{equation}
+
+Как вывод, когда толстый цилиндр подвергается как тепловым, так и механическим напряжения, результирующие напряжения являются суммой уравнений \cref{eq:ch10:equation21} и \cref{eq:ch10:equation30}.
+
+\section{Неравномерный нагрев цилиндра}
+\label{sec:ch10/sec2}
+Надеюсь до этого не дойдет. Тут беда. 
+Если дойдет, то посмотреть на метод косплексных переменных 
+
+\chapter{Функционально-градиентные материалы}\label{ch:ch2}
+
+Функционально-градиентные материалы (ФГМ) --- это новые передовые жаропрочные материалы, используемые в современных технологиях. Помимо превосходных тепловых свойств и способности выдерживать сверхвысокие термические нагрузки, они обладают коррозионной и
+устойчивы к эрозии и обладают высокой прочностью на излом.
+
+
+Исторически метод создания ФГМ состоит в том, чтобы смешать керамику и металл таким образом, чтобы свойства материала непрерывно изменялись от одного составляющего материала к другому. Фактически, коэффициенты определяющих уравнений для распределения температуры и напряжения зависят от координат, поскольку свойства материала являются функциями положения.
+
+Будем рассматривать степенное изменения свойств материала.
+
+\section{Толстый цилиндр из функционально-градиентного материала} \label{ch:ch2/sec1}
+
+Рассмотрим толстый полый цилиндр внутреннего радиуса \(a\) и внешнего радиуса \(b\) изготовленный из ФГМ. Материал цилиндра имеет градацию по направлению \(r\), поэтому свойства материала являются функциями \(r\). Пусть \(u\) и \(v\) --- компоненты перемещения в радиальном и окружном направлениях, соответственно. Тогда соотношения между деформацией и перемещением имеют вид:
+
+\begin{equation}
+	\label{eq:ch2:equation1}
+	\begin{split}
+		\epsilon_{rr} & = u_{,r}\\
+		\epsilon_{\phi\phi} &= \frac{u_{,\phi}}{r} + \frac{u}{r}\\
+		\epsilon_{r \phi} &= \frac{1}{2} \big(\frac{u_{,\phi}}{r} - \frac{v}{r} \big)
+	\end{split}
+\end{equation}
+где значок \((,)\) обозначает частную производную. Тогда напряженно-деформированное состояние для плоской деформации запишется в виде:
+
+\begin{equation}
+	\label{eq:ch2:equation2}
+	\begin{split}
+		\sigma_{rr} &= \big(\lambda + 2 \mu \big) \epsilon_{rr} + \lambda \epsilon_{\phi\phi} - \big(3 \lambda +2 \mu \big) \alpha \theta (r, \phi)\\
+		\sigma_{\phi\phi} &= \big(\lambda + 2 \mu \big) \epsilon_{\phi \phi} + \lambda \epsilon_{rr} - \big(3 \lambda +2 \mu \big) \alpha \theta (r, \phi)\\
+		\sigma_{r \phi} &= 2\mu \epsilon_{r \phi}
+	\end{split}
+\end{equation}
+
+где \(\sigma_{ij}\) и \(\epsilon_{ij}\) (\(i,j = r,\phi)\) --- тензоры напряжений и деформаций, \(\theta (r, \phi) \) --- распределение температуры, определяемое уравнением теплопроводности, где \(\alpha \) --- коэффициент линейного теплового расширения, а \( \lambda \) и \(\mu \) --- коэффициенты Ламэ.
+
+Уравнения равновесия в радиальном и окружном направлениях, без сосредоточенных сил и сил инерции, имеют вид
+
+
+\begin{equation}
+	\label{eq:ch2:equation3}
+	\begin{split}
+		\sigma_{rr,r} &+ \frac{1}{r} \sigma_{r \phi, \phi} + \frac{1}{r} \big ( \sigma_{rr} - \sigma_{\phi\phi}\big ) = 0 \\
+		\sigma_{r \phi, r} &+ \frac{1}{r} \sigma_{\phi \phi, \phi} + \frac{2}{r} \sigma_{r \phi} = 0
+	\end{split}
+\end{equation}
+
+
+Для получения уравнений равновесия в перемещениях
+для ФГМ-цилиндра, закон распределения внутренних свойств материала должен быть известен заранее. Поскольку предполагается, что материал цилиндра меняется в \(r\) --- радиальном направлении --- модуль упругости и коэффициент теплового расширения предполагается описывать степенными законами как
+
+\begin{equation}
+	\label{eq:ch2:equation4}
+	\begin{split}
+		E(r) &= E_0 \big ( \frac{r}{l} \big) ^ {m_1} \\
+		\alpha (r) &= \alpha_0 \big ( \frac{r}{l} \big) ^{ m_2}
+	\end{split}
+\end{equation}
+
+где \(E_0\) и \(\alpha_0 \) --- постоянные материала, а \(m_1\) и \(m_2\) --- степенные показатели распределения свойств, \(l\) --- характерная длина. Здесь и далее положим,
+что коэффициент Пуассона постоянен.
+
+Подставляя последовательно \cref{eq:ch2:equation1} --- \cref{eq:ch2:equation4}, уравнения Навье в перемещения записываются в следующем виде.
+\begin{adjustwidth}{3.5em}{3.5em} В общем случае напряжения можно выразить через деформации, а затем и перемещения. Если, после взятия частной производной, подставить это в уравнения равновесия, то получатся следующие уравнения, которые называется уравнениеми Навье. В ПДСК это выглядит следующим образом:
+
+\begin{equation*}
+\begin{split}
+	&\sigma_{ij,j} + X_i = \rho \ddot{u_i} \quad \text{уравнение равновесия} \\
+	&\sigma_{ij} = \mu \big (u_{i,j} + u_{j,i} \big ) + \big [ \lambda u_{k,k} - \alpha \big (3 \lambda +2\mu \big ) \big (T-T_0 \big ) \big ] \delta_{ij}\\
+	&\mu u_{i,kk} + \big ( \lambda + \mu \big ) u_{k,ki} - \big ( 3 \lambda + 2\mu \big ) \alpha T_{,i} +X_i = \rho \ddot{u_i} \quad \text{уравнение Навье}
+\end{split}
+\end{equation*}
+\end{adjustwidth}
+
+
+{\color{red} ВОТ ТУТ НУЖНО БЫ ЕЩЕ РАЗИК ПРОВЕИТЬ :
+
+\begin{equation}
+	\label{eq:ch2:equation5}
+	\begin{split}
+		u_{,rr} &+ \big ( m_1+1\big ) \frac{1}{r} u_{,r} + \big ( \frac{\nu m_1}{1-\nu} -1 \big ) \frac{1}{r^2} u + \big ( \frac{1-2\nu}{2-2\nu} \big) \frac{1}{r^2} u_{\phi \phi} + \big ( \frac{1}{2-2\nu}\big ) \frac{1}{r} v_{,r \phi} \\
+		&+ \big [ \frac{\big ( 4+2 m_1\big ) \nu -3 }{2-2\nu} \big ] \frac{1}{r^2} v_{, \phi} = \frac{\big ( 1+\nu\big ) \alpha_0 }{\big (1-\nu \big ) l^{m_2}} \Big [ \big (m_1 + m_2 \big ) r^{m_2 -1} \theta + r^{m_2} \theta_{,r}\Big] \\
+		%
+		v_{,rr} &+ \big (m_1 +1 \big ) \frac{1}{r} v_{,r} - \big (m_1 + 1 \big ) \frac{1}{r^2} v + \big ( \frac{2-2\nu }{1-2\nu } \big ) \frac{1}{r^2} v_{,\phi \phi} + \big ( \frac{1}{1-2\nu} \big ) \frac{1}{r} u_{,r \phi} \\
+		&+ \big ( \frac{3-4\nu}{1-2\nu} + m_1\big ) \frac{1}{r^2} u_{, \phi} = \big (\frac{2+2\nu}{1-2\nu} \big ) \big (\frac{\alpha_0 r^{m_2 -1}}{l^{m_2}} \big ) \theta_{,\phi}
+	\end{split}
+\end{equation}
+}
+
+
+Чтобы получить компоненты перемещения \(u\) и \(v\), распределение температуры должно быть известно. Используя граничные условия ({\color{red} описать ГУ}), закон распределения температруры запишется в виде:
+
+\begin{equation}
+	\label{eq:ch2:equation6}
+	\theta(r, \phi) = \sum_{n=-\infty}^{+\infty} \big (A_{n1} r^{\beta_{n1}} + A_{n2} r^{\beta_{n2}} \big ) e^{in \phi}
+\end{equation}
+
+где \(\beta_{n1}\) и \(\beta_{n2}\) и константы интегрирования \(A_{n1}\) и \(A_{n2}\) определены ранее {\color{red} вот раньше из ГУ} 
+
+При заданном температурном распределении (поле), уравнение Навье может быть разрешено в перемещениях \(u(r, \phi) \) и \(v(r, \phi) \). Компоненты перемещений можно разложить в ряд Фурье как:
+\begin{equation}
+\label{eq:ch2:equation7}
+\begin{split}
+	u(r, \phi) &= \sum_{n=-\infty}^{\infty} u_n(r) e^{in\phi}\\
+	v(r, \phi) &= \sum_{n=-\infty}^{\infty} v_n(r) e^{in\phi}
+\end{split}
+\end{equation}
+где \(u_n(r)\) и \(v_n(r)\) коэффициенты в разложении Фурье значений \(u(r, \phi)\) и \(v(r, \phi)\) соответсвенно, которые определяются как:
+
+\begin{equation}
+\label{eq:ch2:equation8}
+\begin{split}
+	u_n(r) &= \frac{1}{2\pi} \sum_{-\pi}^{\pi} u(r, \phi) e^{-in\phi} d\phi\\
+	v_n(r) &= \frac{1}{2\pi} \sum_{-\pi}^{\pi} v(r, \phi) e^{-in\phi} d\phi
+\end{split}
+\end{equation}
+
+Подставляя уравнения \cref{eq:ch2:equation6} и \cref{eq:ch2:equation7} в \cref{eq:ch2:equation5}, получим
+
+\begin{equation}
+\label{eq:ch2:equation9}
+\begin{split}
+	&u_n^{\prime\prime} + \big ( m_1 + 1 \big ) \frac{1}{r} u_n^{\prime} + \big [ \frac{\nu m_1}{1-\nu} -1 - \frac{\big ( 1 - 2\nu \big )n^2}{2-2\nu} \big ] \frac{1}{r^2}u_n + \big(\frac{in}{2-2\nu} \big)\frac{1}{r}v_n^{\prime}\\
+&+in \big [ \frac{ \big (4+2\nu \big )\nu -3}{2-2\nu}\big ]\frac{1}{r^2}v_n = \frac{\big (1+\nu \big ) \alpha_0}{\big (1-\nu \big )l^{m2}} \big [ \big (m_1 + m_2 +\beta_{n1} \big )A_{n1} r^{\beta_{n1}+m_2-1} \\
+&+ \big(m_1 +m_2 + \beta_{n2} \big ) A_{n2} r^{\beta_{n1}+m2-1} \big ]
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:ch2:equation10}
+\begin{split}
+	&v_n^{\prime\prime} + \big ( m_1 + 1 \big ) \frac{1}{r} v_n^{\prime} - \big [ m_1 + 1 + \frac{\big (2-2\nu \big )n^2}{1-2\nu} \big ] \frac{1}{r^2}v_n + \big(\frac{in}{1-2\nu} \big)\frac{1}{r}u_n^{\prime}\\
+&+ in \big (\frac{3-4\nu}{1-2\nu} + m_1 \big ) \frac{1}{r^2} u_n = \frac{in \big (2+2\nu \big)}{\big (1-2\nu \big) l^{m_2}} \alpha_0 \big [ A_{n1} r^{\beta_{n1}+m_2-1} + A_{n2} r^{\beta_{n_2}+m_2 -1}\big ]
+\end{split}
+\end{equation}
+
+Уравнения \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10} образуют систему обыкновенных дифференциальных уравнений (СОДУ) с общим и частным решением. Решение в общем виде предполагается найти в виде:
+
+\begin{equation}
+\label{eq:ch2:equation11}
+\begin{split}
+	u_n^g(r) &= Br^{\eta} \quad \text{g --- general --- общее решение}\\
+	v_n^g(r) &= Cr^{\eta}
+\end{split}
+\end{equation}
+
+Подставляя \cref{eq:ch2:equation11} и \cref{eq:ch2:equation9} в \cref{eq:ch2:equation10}, получим:
+
+\begin{equation}
+\label{eq:ch2:equation12}
+\begin{split}
+	&\big [ \eta \big (\eta-1 \big) + \big (m_1 +1 \big) \eta + \frac{\nu m_1}{1-\nu} - 1 -\frac{ \big (1-2\nu \big)n^2}{2-2\nu} \big ] B \\
+&+ i \big [\frac{\eta}{2-2\nu} + \frac{\big (4+2m_1 \big ) \nu -3 }{2-2\nu}  \big ] n C=0\\
+&i \big [\frac{\eta}{1-2\nu} + \frac{3-4\nu}{1-2\nu} + m_1 \big ]nB+\big [ \eta \big ( \eta-1\big ) + \big (m_1 +1 \big ) \\
+&- m_1 -1 \frac{\big (2-2\nu \big ) n^2}{1-2\nu} \big ] C=0
+\end{split}
+\end{equation}
+
+Для получения нетривиального решения \( (B, C) \) уравнения \cref{eq:ch2:equation12}, \( \eta \) должно удовлетворять следующему уравнению:
+
+\begin{equation}
+\label{eq:ch2:equation13}
+\begin{split}
+	& \left [\eta  \left (\eta -1 \right )+  \left ( m_1 +1 \right ) \eta + \frac{\nu m_1}{1-\nu} -1 - \frac{ \left (1 - 2\nu  \right  ) n^2}{2-2\nu} \right ]  \left [ \eta  \left (\eta -1 \right ) \right. \\
+	&+ \left. \left  ( m_1 + 1 \right ) \eta - m_1 - 1 - \frac{ \left ( 2-2\nu  \right ) n^2}{1-2\nu}  \right. ] +n^2 \left [ \frac{\eta}{2-2\nu}  \right. \\
+	&+  \left. \frac{  \left ( 4+2 m_1 \right ) \nu -3}{2-2\nu}  \right ] \left  [ \frac{\eta}{1-2\nu} + \frac{3-4\nu}{1-2\nu} +m_1 \right ] = 0
+\end{split}
+\end{equation}
+
+Уравнение \cref{eq:ch2:equation13} имеет четыре (4) корня --- от \( \eta_{n1} \) до \( \eta_{n4} \). Таким образом, общее решение уравнений \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10} принимает вид:
+
+\begin{equation}
+\label{eq:ch2:equation14}
+\begin{split}
+	u_n^g(r) &= \sum_{j=1}^4 B_{n_j} r^{\eta_{n_j}}\\
+	v_n^g(r) &= \sum_{j=1}^4 N_{n_j} B_{n_j} r^{\eta_{n_j}}
+\end{split}
+\end{equation}
+где \( N_{n_j} = C_{n_j} / B_{n_j}\) и получено из первого уравнения \cref{eq:ch2:equation12} как
+
+\begin{equation}
+\label{eq:ch2:equation15}
+	N_{n_j} = \frac{i \left [ \eta_j \left (\eta_j -1 \right ) + \left ( m_1 +1 \right ) n_j +\frac{\nu m_1}{1-\nu} -1 - \frac{\left (1-2\nu \right ) n^2}{2-2\nu} \right ]}{n \left [ \frac{n_j}{2-2\nu} + \frac{\left (4+2m_1 \right )\nu -3}{2-2\nu} \right ]}
+\end{equation}
+
+Для изотропного материала \((m_1=0) \) и для \(n=1\), уравнение \cref{eq:ch2:equation13} имеет несколько корней, рассмотрим решение в виде \( \ln{(r/r_0)},  r_0 > 0\), для \(u_n(r), v_n(r) \).
+
+Поиск частного решения \(u_n^p(r), v_n^p(r) \), будем делать в виде:
+
+\begin{equation}
+\label{eq:ch2:equation16}
+\begin{split}
+	u_n^p(r) &= D_{n_1} r^{\beta_{n_1} + m_1 + 1} + D_{n_2} r^{\beta_{n_2} +m_2 + 1} \quad \text{p --- particular --- частное}\\
+	v_n^p(r) &= D_{n_3} r^{\beta_{n_1} + m_2 + 1} + D_{n_2} r^{\beta_{n_4} +m_2 + 1}
+\end{split}
+\end{equation}
+
+Подставляя уравнение \cref{eq:ch2:equation16} в \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10}, получаем:
+
+\begin{equation}
+\label{eq:ch2:equation17}
+\begin{split}
+	&d_1 D_{n_1} r^{\beta_{n_1}+m_2-1} + d_2 D_{n_2} r^{\beta_{n_2}+m_2-1} + d_3 D_{n_3} r^{\beta_{n_1}+m_2-1} \\
+	&+d_4 D_{n_4} r^{\beta_{n_2}+m_2-1} = d_5  r^{\beta_{n_1}+m_2-1} + d_6  r^{\beta_{n_2}+m_2-1}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:ch2:equation18}
+\begin{split}
+	&d_7 D_{n_3} r^{\beta_{n_1}+m_2-1} + d_8 D_{n4} r^{\beta_{n_2}+m_2-1} + d_93 D_{n_1} r^{\beta_{n_1}+m_2-1} \\
+	&+d_{10} D_{n_2} r^{\beta_{n_2}+m_2-1} = d_{11} r^{\beta_{n_1}+m_2-1} + d_{12}  r^{\beta_{n_2}+m_2-1}
+\end{split}
+\end{equation}
+
+где константы от \(d_1\) до \(d_{12}\) определяются по следующим формулам:
+
+\begin{equation*}
+\begin{split}
+	d_1 &= \big (\beta_{n_1}+m_2-1 \big ) \big (\beta_{n_1}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_1}+m_2+1 \big )+ \frac{\nu m_1}{1-\nu}\\
+	& - 1 - \frac{\big (1-2\nu \big )n^2}{2-2\nu}\\
+	d_2 & = \big (\beta_{n_2}+m_2-1 \big ) \big (\beta_{n_2}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_2}+m_2+1 \big )+ \frac{\nu m_1}{1-\nu}\\
+	& - 1 - \frac{\big (1-2\nu \big )n^2}{2-2\nu}\\
+	d_3 &= in \big ( \frac{\beta_{n_1}+m_2-1}{2-2\nu} + \frac{\big (4+2m_1 \big )\nu -3}{2-2\nu}  \big) \\
+	d_4 &= in \big ( \frac{\beta_{n_2}+m_2-1}{2-2\nu} + \frac{\big (4+2m_1 \big )\nu -3}{2-2\nu}  \big) \\
+	d_5 & = \frac{\big (1+\nu \big )\big (m_1+m_2+\beta_{n_1} \big ) \alpha_0 A_{n_1}}{\big ( 1-\nu \big )l^{m_2}} \\
+	d_6 & = \frac{\big (1+\nu \big )\big (m_1+m_2+\beta_{n_2} \big ) \alpha_0 A_{n_2}}{\big ( 1-\nu \big )l^{m_2}} \\
+	d_7 & =  \big (\beta_{n_1}+m_2-1 \big ) \big (\beta_{n_1}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_1}+m_2+1 \big ) -m_1 \\
+		& - 1 - \frac{\big (2-2\nu \big )n^2}{1-2\nu}\\
+	d_8 & =  \big (\beta_{n_2}+m_2-1 \big ) \big (\beta_{n_2}+m_2\big )+ \big (m_1+1 \big ) \big (\beta_{n_2}+m_2+1 \big ) -m_1 \\
+		& - 1 - \frac{\big (2-2\nu \big )n^2}{1-2\nu}\\
+	d_9 &= in \big ( \frac{\beta_{n_1}+m_2-1}{1-2\nu} + \frac{3-4 \nu}{1-2\nu} +m_1  \big) \\
+	d_{10} &= in \big ( \frac{\beta_{n_2}+m_2-1}{1-2\nu} + \frac{3-4 \nu}{1-2\nu} +m_1  \big) \\
+	d_{11} &= \frac{in \big(2+2\nu \big ) \alpha_0 A_{n_1}}{\big ( 1-2\nu \big ) l^{m_2}}\\
+	d_{12} &= \frac{in \big(2+2\nu \big ) \alpha_0 A_{n_2}}{\big ( 1-2\nu \big ) l^{m_2}}
+\end{split}
+\end{equation*}
+
+Приравнивая коэффициенты при одинаковых степенях
+\begin{equation}
+\label{eq:ch2:equation19}
+\begin{split}
+	d_1 D_{n_1} +d_3 D_{n_3} &= d_5\\
+	d_{9} D_{n_1} +d_7 D_{n_3} &= d_{11}
+\end{split}
+\end{equation}
+\begin{equation}
+\label{eq:ch2:equation20}
+\begin{split}
+	d_2 D_{n_2} +d_4 D_{n_4} &= d_6\\
+	d_{10} D_{n_2} +d_8 D_{n_4} &= d_{12}
+\end{split}
+\end{equation}
+
+Уравнения \cref{eq:ch2:equation19} и \cref{eq:ch2:equation20} образуют систему линейных алгебраических уравнений (СЛАУ), где решение можно найти методом Крамера, например:
+
+\begin{equation}
+\label{eq:ch2:equation21}
+\begin{split}
+	D_{n_1} & = \frac{d_5 d_7 - d_3 d_{11} }{d_1 d_7 - d_3 d_{9}} \quad  D_{n_2}  = \frac{d_6 d_8 - d_4 d_{12} }{d_2 d_8 - d_4 d_{10}}\\
+	D_{n_3} & = \frac{d_1 d_{11} - d_5 d_{9} }{d_1 d_7 - d_3 d_{9}} \quad  D_{n_4}  = \frac{d_2 d_{12} - d_6 d_{10} }{d_2 d_8 - d_4 d_{10}}
+\end{split}
+\end{equation}
+
+обеспечивая положительными знаменатели, т.е. \( d_1 d_7 - d_3 d_{9} \ne 0\) и \( d_2 d_8 - d_4 d_{10} \ne 0\). Полное решение для  \(u_n(r), v_n(r) \) определяется как сумма общего и частного решения, запишется в виде:
+
+\begin{equation}
+\label{eq:ch2:equation22}
+\begin{split}
+	u_n(r) & =u_n^g(r)+u_n^p(r)\\
+	v_n(r) &= v_n^g(r)+v_n^p(r)
+\end{split}
+\end{equation}
+
+Отсюда
+
+\begin{equation}
+\label{eq:ch2:equation23}
+\begin{split}
+	u_n(r) & =\sum_{j=1}^4 B_{n_j} r^{\eta_{n_j}} + D_{n_1} r^{\beta_{n_1} +m_2 +1} +D_{n_2} r^{\beta_{n_2} +m_2 +1} \\
+	v_n(r) &= \sum_{j=1}^4 N_{n_j} B_{n_j} r^{\eta_{n_j}} + D_{n_3} r^{\beta_{n_1} +m_2 +1} +D_{n_4} r^{\beta_{n_2} +m_2 +1} 
+\end{split}
+\end{equation}
+
+При \( n=0 \) коэффициент \(N_{n_j}\) в \cref{eq:ch2:equation15} обращается в ноль потому что система \cref{eq:ch2:equation9} и \cref{eq:ch2:equation10} для \( n=0 \) распадается на отдельные дифференциальные уравнения:
+
+\begin{equation}
+\label{eq:ch2:equation24}
+\begin{split}
+	u_0^{\prime \prime} &+ \big ( m_1 +1 \big )\frac{1}{r} u_0^{\prime} + \big ( \frac{\nu m_1}{1-\nu} -1 \big ) \frac{1}{r^2} u_0 = \frac{\big (1+\nu \big )\alpha_0}{\big (1-\nu \big )l^{m_2}} \big [ \big ( m_1+m_2+\beta_{01} \big ) \\
+	& \times A_{01} r^{\beta_{01}+m_2 -1} + \big ( m_1 + m_2 + \beta_{02} \big ) A_{02} r^{\beta_{02}+m_2 -1}\big ]
+\end{split}
+\end{equation}
+
+\begin{flalign}
+\label{eq:ch2:equation25}
+	v_0^{\prime \prime} + \big ( m_1 +1 \big ) \frac{1}{r} v_0^{\prime} - \big ( m_1 + 1 \big ) \frac{1}{r^2} v_0 = 0 
+\end{flalign}
+
+Решение уравнений \cref{eq:ch2:equation24} и \cref{eq:ch2:equation25} записывается в виде:
+
+\begin{equation}
+\label{eq:ch2:equation26}
+\begin{split}
+	u_0(r) &= \sum_{j=1}^2 \left( B_{0j} r^{\eta_{0j}} +D_{0j} r^{\beta_{0j}+m_2+1} \right )\\
+	v_0(r) &= \sum_{j=3}^4 B_{0j} r^{\eta_{0j}}
+\end{split}
+\end{equation}
+
+где
+\begin{flalign*}
+	&\eta_{01,2} = \frac{-m_1}{2} \pm \left ( \frac{m_1^2}{4} - \left ( \frac{\nu m_1}{1-\nu} - 1 \right ) \right ) ^ {1/2} &\\
+	&\eta_{03} = 1 &\\
+	&\eta_{04} = - \left ( m_1 + 1 \right ) &
+\end{flalign*}
+
+\begin{equation}
+\label{eq:ch2:equation27}
+\begin{split}
+	D_{0j} = \frac{l^{-m_2} \left (1+\nu \right ) \left ( \beta_{0j}+m_1+m_2 \right ) \alpha_0 A_{0j} }{\left (1-\nu \right ) \left [ \left ( \beta_{0j}+m_2+1 \right) \left (\beta_{0j}+m_2 \right ) + \left (  \beta_{0j}+m_2+1 \right ) \left ( m_1 + 1 \right )+\frac{\nu m_1}{1-\nu} - 1 \right ]}, \\
+j=1, 2
+\end{split}
+\end{equation}
+
+Подставляя  \cref{eq:ch2:equation23} и  \cref{eq:ch2:equation26} в  \cref{eq:ch2:equation7}, получим:
+
+\begin{equation}
+\label{eq:ch2:equation28}
+\begin{split}
+	u(r, \phi) = &\sum_{j=1}^2 \left ( B_{0j} r^{\eta_{0j}} + D_{0j} r^{\beta_{01}+m_2+1} \right ) + \sum_{n=-\infty, n \ne 0}^{\infty}  \left [ \sum_{j=1}^4 B_{nj} r^{\eta_{nj}} \right.\\
+	& \left. + D_{n1} r^{\beta_{n1}+m_2+1} +  D_{n2} r^{\beta_{n2}+m_2+1} \right ] e^{in\phi}\\
+	v(r, \phi) =& \sum_{j=3}^4  B_{0j} r^{\eta_{0j}} +  \sum_{n=-\infty, n \ne 0}^{\infty}  \left [ \sum_{j=1}^4 N_{nj} B_{j} r^{\eta_{nj}} + D_{n3} r^{\beta_{n1}+m_2+1} \right. \\
+	& \left. + D_{n4} r^{\beta_{n1}+m_2+1} \right ] e^{in\phi}
+\end{split}
+\end{equation}
+
+Подставляя \cref{eq:ch2:equation28} в  \cref{eq:ch2:equation1} и  \cref{eq:ch2:equation2}, получим соотношения для напряжений:
+
+\begin{equation}
+\label{eq:ch2:equation29}
+\begin{split}
+	\sigma_{rr} =& \frac{E_0}{\left (1+\nu \right ) \left (1-2\nu \right) l^{m_1}} 
+		\Big \{ \sum_{j=1}^2 \left [ \left ( 1 -\nu \right ) \eta_{0j}+\nu \right ] B_{0j}r^{\eta_{0j}+m_1-1}  \left [\nu \beta_{0j} +\nu m_2 + 1 \right.  \\
+	&-   \left. \frac{\left ( 1 +\nu \right ) \alpha_0}{l^{m_2}} \right ] D_{0j} r^{\beta_{0j}+m_1+m_2} +
+		 \sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ \left ( 1 -\nu \right ) \eta_{nj} +\nu \left ( in N_{nj}+1 \right ) \right ]  \\
+	&\times B_{nj} r^{\eta_{nj}+m_1-1}+\big [ \left (1-\nu \right ) \left (\beta_{n1}+m_2+1 \right ) D_{n1} + \nu \left ( in D_{n3} +D_{n1} \right )\\
+	&-  \frac{\left ( 1+\nu \right ) \alpha_0}{l^{m_2}} A_{n1} \big ] r^{\beta_{n1}+m_1+m_2}+ \big [ \left (1-\nu \right ) \left ( \beta_{n2}+m_2+1 \right ) D_{n2}  +  \nu \left (inD_{n4}+D_{n2} \right )\\
+	&- \frac{\left (1+\nu \right) \alpha_0}{l^{m_2}} A_{n2} \big ] r^{\beta_{n2}+m_1+m_2} \big\}  \Big \} e^{in\phi}\\
+	%
+	\sigma_{\phi \phi} =& \frac{E_0}{\left (1+\nu \right ) \left (1-2\nu \right) l^{m_1}}
+	 	\Big \{ \sum_{j=1}^2 \left [ \left ( 1 -\nu \right ) \eta_{0j}+\nu \right ] B_{0j}r^{\eta_{0j}+m_1-1} \\
+	&+ \left [ \left ( 1 -\nu \right ) \beta_{0j}+m_2+1 - \frac{\left (1-\nu \right)\alpha_0}{l^{m_2}} \right ]D_{0j} r^{\beta_{0j}+m_1+m_2} \\
+	&+  \sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ \nu \eta_{nj}+ \left ( 1 -\nu \right ) \left ( in N_{nj}+1 \right ) \right ]  B_{nj} r^{\eta_{nj}+m_1-1}\\
+	&+ \left [ \nu \left ( \beta_{n1}+m_2+1\right ) D_{n1} + \left (1-\nu \right ) \left (inD_{n3}+D_{n1} \right )-\frac{ \left (1+\nu \right ) \alpha_0}{l^{m_2}}A_{n1}\right ]\\
+	&\times r^{ \beta_{n1}+m_1+m_2} + \Big [ \nu \left (\beta_{n2}+m_2+1 \right ) D_{n2} +\left (1-\nu \right )\left ( in D_{n4}+D_{n2} \right )\\
+	&- \frac{\left (1+\nu \right ) \alpha_0}{l^{m_2}}A_{n2} \Big  ] r^{\beta_{n2}+m_1+m_2} \big\}  \Big \} e^{in\phi} \\
+	%
+	\sigma_{r\phi} =& \frac{E_0}{\left (1+\nu \right ) l^{m_1}}
+		\Big \{ \left ( \eta_{04}-1 \right) B_{04} r^{\eta_{04}+m_1-1} +\sum_{n=-\infty, n\ne 0}^{\infty} \big\{  \sum_{j=1}^4 \left [ in+ \left (\eta_{ni} -  1  \right ) N_{nj} \right ]\\
+	&\times B_{nj} r^{\eta_{nj}+m_1-1} + \left [  in D_{n1} + \left ( \beta_{n1} + m_2 \right ) D_{n3} \right ] r^{\beta_{n1}+m_1+m_2} \\
+	&+\left [ in D_{n2} + \left ( \beta_{n2} + m_2 \right ) D_{n4} \right ] r^{\beta_{n2}+m_1+m_2} \big\} \Big \} e^{in\phi}
+\end{split}
+\end{equation}
+
+Для определения констант \(B_{nj}\) можно использовать любые доступные граничные условия для перемещений или напрящений, напривер заданных в виде:
+
+\begin{equation}
+\label{eq:ch2:equation30}
+\begin{split}
+	u(a, \phi) = g_1 (\phi) \\
+	u(b, \phi) = g_2 (\phi) \\
+	v(a, \phi) = g_3 (\phi) \\
+	v(b, \phi) = g_4 (\phi) \\
+\end{split}
+\end{equation}
+
+или
+
+\begin{equation}
+\label{eq:ch2:equation31}
+\begin{split}
+	\sigma_{rr}(a, \phi) = g_5 (\phi) \\
+	\sigma_{rr}(b, \phi) = g_6 (\phi) \\
+	\sigma_{r\phi}(a, \phi) = g_7 (\phi) \\
+	\sigma_{r\phi}(b, \phi) = g_8 (\phi) \\
+\end{split}
+\end{equation}
+
+Следует отметить, что в уравнения с \cref{eq:ch2:equation24} по \cref{eq:ch2:equation31} входят четыре неизвестные \(B_{n1}\), \(B_{n2}\), \(B_{n3}\) и \(B_{n4}\). Для их определения необходимы четыре граничных условия. Эти условия можно выбрать из условий \cref{eq:ch2:equation30} или \cref{eq:ch2:equation31}. Можно выбрать ГУ в перемещения или напряжения, или в обоих комбинациях.
