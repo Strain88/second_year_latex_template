@@ -99,20 +99,6 @@
 или
 при \(n=0, n=1, m=4\)
 
-\begin{equation*}
-	\begin{split}
-		\beta_{0(1,2)} = -\frac{4}{2} \pm \left(\frac{4^2}{4} + 0^2 \right)^{\frac{1}{2}} = 
-		\begin{cases}
-			\beta_{01} = 0\\
-			\beta_{02} = -4
-		\end{cases}\\
-		\beta_{1(1,2)} = -\frac{4}{2} \pm \left(\frac{4^2}{4} + 1^2 \right)^{\frac{1}{2}} =
-		\begin{cases}
-			\beta_{11} = -2-\sqrt{5}\\
-			\beta_{12} = -2+\sqrt{5}
-		\end{cases}
-	\end{split}
-\end{equation*}
 
 что с последующей подстановкой приводит к решению в общем виде
 
@@ -137,8 +123,58 @@
 \end{equation*}
 
 
-сравнить с примером из этой статьи
-Dinkar Sharma* and Ramandeep Kaur
-Thermoelastic analysis of FGM hollow cylinder for
-variable parameters and temperature
-distributions using FEM
+%сравнить с примером из этой статьи Dinkar Sharma* and Ramandeep Kaur
+% Thermoelastic analysis of FGM hollow cylinder for
+% variable parameters and temperature
+% distributions using FEM
+{\color{red}
+Вот тут будет продолжение примера. Пока возникли проблемы с реализацией, но должно оплучиться что-то в таком виде.
+В запасе есть еще пример с другими ГУ
+}
+\begin{figure}[ht]
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig1.png}
+		\caption{Распределение температуры по толщине. К этому я стремлюсь}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig1b.png}
+		\caption{Распределение температуры по толщине. Пока выходит так}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig2.png}
+		\caption{Радиальное перемещение по толщине}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig2a.png}
+		\caption{Окружное перемещение по толщине}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}[ht]
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig3a.png}
+		\caption{Радиальное термальное напряжениепо толщине}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[h]{.4\textwidth}
+		\centering
+		\includegraphics[width=1\textwidth]{example1_fig3b.png}
+		\caption{Окружное термальное напряжениепо толщине}
+	\end{minipage}
+	\hfill
+\begin{minipage}[h]{.4\textwidth}
+	\centering
+	\includegraphics[width=1\textwidth]{example1_fig3c.png}
+	\caption{Сдвиговое термальное напряжениепо толщине}
+\end{minipage}
+\end{figure}
